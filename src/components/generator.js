@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import loremIpsum from "lorem-ipsum";
+
+/**
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
@@ -22,6 +27,7 @@ class Generator extends Component {
     this.onInsertContent = this.onInsertContent.bind(this);
     this.addParagraph = this.addParagraph.bind(this);
     this.addList = this.addList.bind(this);
+    this.randomInteger = this.randomInteger.bind(this);
 
     this.state = {
       contentType: "",
@@ -46,23 +52,62 @@ class Generator extends Component {
     "paragraph" === this.state.contentType
       ? this.addParagraph()
       : this.addList();
+  }
 
-    console.log("Insert Clicked" + this.state.contentType);
+  randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   addParagraph() {
-    const block = createBlock("core/paragraph", {
-      content: "Gutenberg Gangsta"
-    });
-    this.props.insertBlock(block);
+    let counter = 1;
+
+    while (counter <= this.state.count) {
+      const dummyContent = loremIpsum({
+        count: 1, // Number of words, sentences, or paragraphs to generate.
+        units: "paragraphs", // Generate words, sentences, or paragraphs.
+        sentenceLowerBound: 5, // Minimum words per sentence.
+        sentenceUpperBound: 15, // Maximum words per sentence.
+        paragraphLowerBound: 5, // Minimum sentences per paragraph.
+        paragraphUpperBound: 15, // Maximum sentences per paragraph.
+        format: "plain" // Plain text or html
+      });
+
+      const block = createBlock("core/paragraph", {
+        content: dummyContent
+      });
+
+      this.props.insertBlock(block);
+      counter++;
+    }
   }
 
   addList() {
-    const block = createBlock("core/list", {
-      nodeName: this.state.listType,
-      values: [<li key="riad">Riad</li>, <li key="ajit">Ajit</li>]
-    });
-    this.props.insertBlock(block);
+    let counter = 1;
+
+    while (counter <= this.state.count) {
+      let itemCounter = 1;
+      let listItems = [];
+      const listLength = this.randomInteger(5, 10);
+
+      while (itemCounter <= listLength) {
+        const dummyContent = loremIpsum({
+          count: this.state.count, // Number of words, sentences, or paragraphs to generate.
+          units: "words" // Generate words, sentences, or paragraphs.
+        });
+        listItems.push(<li key={itemCounter}> {dummyContent} </li>);
+
+        itemCounter++;
+      }
+
+      const block = createBlock("core/list", {
+        nodeName: this.state.listType,
+        values: listItems
+      });
+
+      this.props.insertBlock(block);
+
+      counter++;
+    }
   }
 
   render() {
@@ -89,7 +134,7 @@ class Generator extends Component {
 
         {"list" === contentType && (
           <BaseControl id="list-type" label="List Type">
-            <ButtonGroup aria-label={__("list Type")}>
+            <ButtonGroup aria-label={__("List Type")}>
               {options.listType.map(type => {
                 return (
                   <Button
@@ -110,7 +155,7 @@ class Generator extends Component {
         {("paragraph" === contentType ||
           ("list" === contentType && listType)) && (
           <Fragment>
-            <BaseControl id="item-count" label="Item count">
+            <BaseControl id="item-count" label="Count">
               <input
                 name="count"
                 onChange={this.onChangeCount}

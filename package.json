@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "private": true,
     "dependencies": {
-        "classnames": "^2.2.5"
+        "classnames": "^2.2.5",
+        "lorem-ipsum": "^1.0.4"
     },
     "scripts": {
         "lint": "eslint scripts",

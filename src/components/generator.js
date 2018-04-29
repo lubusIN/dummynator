@@ -4,6 +4,8 @@
 const { __ } = wp.i18n;
 const { ButtonGroup, Button, BaseControl } = wp.components;
 const { Component, Fragment } = wp.element;
+const { withDispatch } = wp.data;
+const { createBlock } = wp.blocks;
 
 /**
  * Internal dependencies
@@ -18,6 +20,8 @@ class Generator extends Component {
     this.onChangeListType = this.onChangeListType.bind(this);
     this.onChangeCount = this.onChangeCount.bind(this);
     this.onInsertContent = this.onInsertContent.bind(this);
+    this.addParagraph = this.addParagraph.bind(this);
+    this.addList = this.addList.bind(this);
 
     this.state = {
       contentType: "",
@@ -39,7 +43,26 @@ class Generator extends Component {
   }
 
   onInsertContent() {
-    console.log("Insert Clicked");
+    "paragraph" === this.state.contentType
+      ? this.addParagraph()
+      : this.addList();
+
+    console.log("Insert Clicked" + this.state.contentType);
+  }
+
+  addParagraph() {
+    const block = createBlock("core/paragraph", {
+      content: "Gutenberg Gangsta"
+    });
+    this.props.insertBlock(block);
+  }
+
+  addList() {
+    const block = createBlock("core/list", {
+      nodeName: this.state.listType,
+      values: [<li key="riad">Riad</li>, <li key="ajit">Ajit</li>]
+    });
+    this.props.insertBlock(block);
   }
 
   render() {
@@ -109,4 +132,6 @@ class Generator extends Component {
   }
 }
 
-export default Generator;
+export default withDispatch(dispatch => ({
+  insertBlock: dispatch("core/editor").insertBlock
+}))(Generator);

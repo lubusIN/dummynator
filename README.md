@@ -1,4 +1,4 @@
-<p align="center"><img src="https://user-images.githubusercontent.com/1039236/38365718-068c190e-38fb-11e8-8ada-a4a50cfd95d1.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/lubusIN/dummynator/master/.wordpress-org/logo.png"></p>
 
 <p align="center">
 <a href="https://wordpress.org/plugins/dummynator/"><img src="https://img.shields.io/wordpress/plugin/v/dummynator.svg" alt="Latest Stable Version"></a> <a href="https://wordpress.org/plugins/dummynator/"><img src="https://img.shields.io/wordpress/v/dummynator.svg" alt="Version Tested"></a> <a href="https://wordpress.org/plugins/dummynator/"><img src="https://img.shields.io/wordpress/plugin/dt/dummynator.svg" alt="Downloads"></a> <a href="https://wordpress.org/plugins/dummynator/"><img src="https://img.shields.io/wordpress/plugin/r/dummynator.svg" alt="Rating"></a> <a href="https://wordpress.org/plugins/dummynator/"><img src="https://img.shields.io/aur/license/yaourt.svg" alt="Licence"></a>

@@ -4,8 +4,13 @@
 const { PluginSidebarMoreMenuItem } = wp.editPost;
 const { __ } = wp.i18n;
 
+/**
+ * Internal dependencies
+ */
+import pluginIcon from "../data/icon";
+
 const MenuItem = () => (
-  <PluginSidebarMoreMenuItem icon="editor-justify" target="dummynator-sidebar">
+  <PluginSidebarMoreMenuItem icon={pluginIcon} target="dummynator-sidebar">
     {__("Dummynator")}
   </PluginSidebarMoreMenuItem>
 );

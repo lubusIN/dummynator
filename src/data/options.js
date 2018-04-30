@@ -9,6 +9,6 @@ options.contentType = [
   { label: "List", value: "list" }
 ];
 
-options.listType = [{ label: "UL", value: "UL" }, { label: "OL", value: "OL" }];
+options.listType = [{ label: "ul", value: "UL" }, { label: "ol", value: "OL" }];
 
 export default options;

@@ -1,3 +1,22 @@
 .dummynator-sidebar__wrapper{
         padding: 10px;
+
+        .components-icon-button:not(:disabled):hover {
+                box-shadow: none;
+        }
+
+        .components-base-control__label{
+                display: inline-block;
+                margin-bottom: -6px;
+        }
+
+        .components-button-group, input[type=number]{
+                float: right;
+        }
+}
+
+.wp-core-ui {
+        .dummynator-sidebar__wrapper .button.button-large {
+                padding-top: 3px;
+        }
 }

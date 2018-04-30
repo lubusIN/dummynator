@@ -7,7 +7,7 @@ import loremIpsum from "lorem-ipsum";
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { ButtonGroup, Button, BaseControl } = wp.components;
+const { ButtonGroup, Button, IconButton, BaseControl } = wp.components;
 const { Component, Fragment } = wp.element;
 const { withDispatch } = wp.data;
 const { createBlock } = wp.blocks;
@@ -15,7 +15,7 @@ const { createBlock } = wp.blocks;
 /**
  * Internal dependencies
  */
-import options from "../options";
+import options from "../data/options";
 
 class Generator extends Component {
   constructor() {
@@ -118,15 +118,17 @@ class Generator extends Component {
           <ButtonGroup aria-label={__("Content Type")}>
             {options.contentType.map(type => {
               return (
-                <Button
+                <IconButton
                   key={type.label}
+                  label={type.label}
+                  icon={`editor-${
+                    "paragraph" === type.value ? "paragraph" : "ul"
+                  }`}
                   isLarge
                   isPrimary={contentType === type.value}
                   aria-pressed={contentType === type.value}
                   onClick={() => this.onChangeContentType(type.value)}
-                >
-                  {type.label}
-                </Button>
+                />
               );
             })}
           </ButtonGroup>
@@ -137,15 +139,15 @@ class Generator extends Component {
             <ButtonGroup aria-label={__("List Type")}>
               {options.listType.map(type => {
                 return (
-                  <Button
+                  <IconButton
                     key={type.label}
+                    icon={`editor-${type.label}`}
+                    label={type.label}
                     isLarge
                     isPrimary={listType === type.value}
                     aria-pressed={listType === type.value}
                     onClick={() => this.onChangeListType(type.value)}
-                  >
-                    {type.label}
-                  </Button>
+                  />
                 );
               })}
             </ButtonGroup>

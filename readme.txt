@@ -47,6 +47,6 @@ If you have any suggestions/Feature request that you would like to see in the up
 
 ***v1.0***
 
-Released on [Date]
+Released on 30th April 2018
 
  - Initial plugin release

@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-const { PluginSidebar } = wp.editPost;
+import { PluginSidebar } from "@wordpress/editPost";
 
 /**
  * Internal dependencies

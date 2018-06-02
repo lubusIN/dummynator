@@ -1,8 +1,8 @@
 /**
  * WordPress dependencies
  */
-const { Fragment } = wp.element;
-const { registerPlugin } = wp.plugins;
+import { Fragment } from "@wordpress/element";
+import { registerPlugin } from "@wordpress/plugins";
 
 /**
  * Internal dependencies

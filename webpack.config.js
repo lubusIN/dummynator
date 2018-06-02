@@ -1,23 +1,59 @@
+/**
+ * External Dependencies
+ */
 const webpack = require("webpack");
-const path = require("path");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const inProduction = "production" === process.env.NODE_ENV;
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const WebpackRTLPlugin = require("webpack-rtl-plugin");
 
-const externals = {
-  react: "React"
+// Enviornment Flag
+const inProduction = "production" === process.env.NODE_ENV;
+
+// Block CSS loader
+const cssExtractTextPlugin = new ExtractTextPlugin({
+  filename: "./build/style.css"
+});
+
+// Editor CSS loader
+const editBlocksCSSPlugin = new ExtractTextPlugin({
+  filename: "./build/editor.css"
+});
+
+// Configuration for the ExtractTextPlugin.
+const extractConfig = {
+  use: [
+    { loader: "raw-loader" },
+    {
+      loader: "postcss-loader",
+      options: {
+        plugins: [require("autoprefixer")]
+      }
+    },
+    {
+      loader: "sass-loader"
+    }
+  ]
 };
+
+// Externals
+const externals = {
+  react: "React",
+  lodash: "lodash"
+};
+// WordPress dependences
 const wpDependencies = [
   "components",
   "element",
   "blocks",
+  "editor",
+  "hooks",
   "utils",
   "date",
   "data",
   "i18n",
   "editPost",
-  "plugins"
+  "plugins",
+  "apiRequest"
 ];
 wpDependencies.forEach(wpDependency => {
   externals["@wordpress/" + wpDependency] = {
@@ -27,70 +63,48 @@ wpDependencies.forEach(wpDependency => {
 
 // Webpack config.
 const config = {
-  entry: {
-    script: ["./src/index.js"]
-  },
+  entry: "./src/index.js",
   externals,
-  // Tell webpack where to output.
   output: {
-    path: path.resolve(__dirname, "./build"),
-    filename: "[name].js"
+    filename: "build/script.js",
+    path: __dirname,
+    library: ["dummynator", "[name]"],
+    libraryTarget: "this"
   },
   resolve: {
     modules: [__dirname, "node_modules"]
   },
-  devtool: "source-map",
   module: {
     rules: [
-      // Use Babel to compile JS.
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ["babel-loader"]
+        use: "babel-loader"
       },
-      // SASS to CSS.
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            { loader: "raw-loader" },
-            {
-              loader: "postcss-loader",
-              options: {
-                sourceMap: true,
-                plugins: () => [require("autoprefixer")]
-              }
-            },
-            {
-              loader: "sass-loader",
-              options: {
-                sourceMap: true,
-                outputStyle: inProduction ? "compressed" : "nested"
-              }
-            }
-          ]
-        })
+        test: /editor\.s?css$/,
+        use: editBlocksCSSPlugin.extract(extractConfig)
+      },
+      {
+        test: /style\.s?css$/,
+        use: cssExtractTextPlugin.extract(extractConfig)
       }
     ]
   },
-
-  // Plugins.
   plugins: [
-    // Removes the "build" folder before building.
     new CleanWebpackPlugin(["build"]),
-    new ExtractTextPlugin("style.css"),
-
-    // Create RTL css.
+    editBlocksCSSPlugin,
+    cssExtractTextPlugin,
     new WebpackRTLPlugin()
-  ]
+  ],
+  stats: {
+    children: false
+  }
 };
 
-// inProd?
+// For Productions
 if (inProduction) {
-  // Uglify JS.
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({ sourceMap: true }));
-
-  // Minify CSS.
   config.plugins.push(new webpack.LoaderOptionsPlugin({ minimize: true }));
 }
 

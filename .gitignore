@@ -50,7 +50,7 @@ vendor
 
 #build
 build
-languages
+languages/*.pot
 dummynator.zip
 
 # Project Notes

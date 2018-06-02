@@ -6,17 +6,27 @@ import loremIpsum from "lorem-ipsum";
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n;
-const { ButtonGroup, Button, IconButton, BaseControl } = wp.components;
-const { Component, Fragment } = wp.element;
-const { withDispatch } = wp.data;
-const { createBlock } = wp.blocks;
+import { __ } from "@wordpress/i18n";
+import {
+  ButtonGroup,
+  Button,
+  IconButton,
+  BaseControl
+} from "@wordpress/components";
+import { Component, Fragment } from "@wordpress/element";
+import { withDispatch } from "@wordpress/data";
+import { createBlock } from "@wordpress/blocks";
 
 /**
  * Internal dependencies
  */
 import options from "../data/options";
 
+/**
+ * Dummy content generator
+ *
+ * @extends Component
+ */
 class Generator extends Component {
   constructor() {
     super(...arguments);

@@ -6,14 +6,14 @@
  * Description: Quickly insert dummy content
  * Author: LUBUS
  * Author URI: https://lubus.in
- * Version: 1.0
+ * Version: 1.1.0
  * Text Domain: dummynator
  * Domain Path: /languages
  * GitHub Plugin URI: https://github.com/lubusIN/dummynator
  * Tags: gutenberg, dummy, lipsum,
  * Requires at least: 3.0.1
  * Tested up to:  4.9.4
- * Stable tag: 1.0
+ * Stable tag: 1.1.0
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *

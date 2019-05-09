@@ -17,13 +17,13 @@ Quickly insert dummy content
 ![Plugin Screenshot](https://raw.githubusercontent.com/lubusIN/dummynator/master/.wordpress-org/screenshot-1.gif)
 
 
->**Disclaimer:** Experimental plugin to extend gutenberg. Have any suggestion feel free to send a PR or [open an issue](https://github.com/lubusIN/dummynator/issues).
+>**Disclaimer:** Experimental plugin that helps you extend gutenberg. If you have any suggestions, feel free to send a PR or [open an issue](https://github.com/lubusIN/dummynator/issues).
 
 ## Roadmap
 
 - More features & options
 
-If you have any suggestions/feature request that you would like to see in the upcoming releases , feel free to let us know in the [issues section](https://github.com/lubusIN/dummynator/issues)
+If you have any suggestions/feature request that you would like to see in the upcoming releases, feel free to let us know in the [issues section](https://github.com/lubusIN/dummynator/issues)
 
 
 ## Installation
@@ -48,9 +48,9 @@ If you have any suggestions/feature request that you would like to see in the up
 Please see the [Changelog](CHANGELOG.md) 
 ## Contributing
 
-Thank you for considering contributing to the `Dummynator`. You can read the contribution guide lines [here](CONTRIBUTING.md)
+Thank you in advance if you wish to contribute to the `Dummynator`. You can read the contribution guidelines [here](CONTRIBUTING.md)
 
-Check the development tasklist [here](https://github.com/lubusIN/dummynator/projects/1) if something interest you or suggest something [here](https://github.com/lubusIN/dummynator/issues)
+Check the development tasklist [here](https://github.com/lubusIN/dummynator/projects/1), if something interests you or want to suggest something click [here](https://github.com/lubusIN/dummynator/issues)
 
 ## Security
 
@@ -85,8 +85,8 @@ If you discover any security related issues, please email to [ajit@lubus.in](mai
 
 [LUBUS](http://lubus.in) is a web design agency based in Mumbai, India.
 
-You can pledge on [patreon](https://www.patreon.com/lubus) to support the development & maintenance of various [opensource](https://github.com/lubusIN/) stuff we are building.
+You can pledge on [patreon](https://www.patreon.com/lubus) to support the development & maintenance of various [opensource](https://github.com/lubusIN/) stuffs we are building.
 
 ## License
 
-`Dummynator` is open-sourced software licensed under the [GPL 3.0 license](LICENSE)
+`Dummynator` is an open-source software licensed under the [GPL 3.0 license](LICENSE)

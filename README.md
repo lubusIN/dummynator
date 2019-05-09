@@ -44,7 +44,7 @@ Quickly insert dummy content
 
 Please see the [Changelog](CHANGELOG.md) 
 
-##Feedback/Suggestions
+## Feedback/Suggestions
 
 If you have any suggestions/feature request that you would like to see in the upcoming releases, feel free to let us know in the [issues section](https://github.com/lubusIN/dummynator/issues)
 

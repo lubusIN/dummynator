@@ -11,7 +11,7 @@
 
 ## Introduction
 
-Helps you quickly insert dummy content into Gutenberg editor.
+Helps you quickly add dummy content to Gutenberg editor.
 
 ## Screenshot
 ![Plugin Screenshot](https://raw.githubusercontent.com/lubusIN/dummynator/master/.wordpress-org/screenshot-1.gif)

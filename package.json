@@ -41,6 +41,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.2",
+    "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.1.1",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
@@ -53,7 +54,6 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.6",
     "webpack": "^3.8.1",
-    "webpack-rtl-plugin": "^1.6.0",
-    "clean-webpack-plugin": "^0.1.19"
+    "webpack-rtl-plugin": "^1.6.0"
   }
 }

@@ -1,17 +1,14 @@
 .dummynator-sidebar__wrapper{
         padding: 10px;
 
+        .components-base-control__field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;        
+        }
+
         .components-icon-button:not(:disabled):hover {
                 box-shadow: none;
-        }
-
-        .components-base-control__label{
-                display: inline-block;
-                margin-bottom: -6px;
-        }
-
-        .components-button-group, input[type=number]{
-                float: right;
         }
 }
 
